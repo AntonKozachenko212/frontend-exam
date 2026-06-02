@@ -1,0 +1,233 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --c-bg: #0a0a0f;
+  --c-surface: #13131a;
+  --c-surface2: #1c1c26;
+  --c-border: #2a2a3a;
+  --c-accent: #e8b44d;
+  --c-accent2: #c97c3a;
+  --c-text: #f0ede6;
+  --c-muted: #8888aa;
+  --c-danger: #d95f5f;
+  --c-success: #5fba7d;
+  --c-info: #5f9fd9;
+  --c-warn: #e8b44d;
+  --r: 8px;
+  --r2: 14px;
+}
+
+body {
+  background: var(--c-bg);
+  color: var(--c-text);
+  font-family: 'Georgia', serif;
+  min-height: 100vh;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input, select {
+  font-family: inherit;
+}
+
+.app {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px 16px 60px;
+}
+
+/* ─── Header ─── */
+.header {
+  text-align: center;
+  padding: 28px 0 36px;
+  border-bottom: 1px solid var(--c-border);
+  margin-bottom: 28px;
+}
+
+.header__title {
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  color: var(--c-accent);
+  text-transform: uppercase;
+}
+
+.header__subtitle {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  color: var(--c-muted);
+  margin-top: 8px;
+}
+
+/* ─── Tabs ─── */
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 26px;
+  background: var(--c-surface);
+  border-radius: var(--r2);
+  padding: 4px;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  background: transparent;
+  color: var(--c-muted);
+  border-radius: 10px;
+  transition: all 0.2s;
+}
+
+.tab--active {
+  background: var(--c-accent);
+  color: #0a0a0f;
+}
+
+/* ─── Layout ─── */
+.catalog-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 22px;
+  align-items: start;
+}
+
+@media (max-width: 700px) {
+  .catalog-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── Section heading ─── */
+.section-heading {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin-bottom: 16px;
+}
+
+/* ─── Buttons ─── */
+.btn-primary {
+  background: var(--c-accent);
+  color: #0a0a0f;
+  border: none;
+  border-radius: var(--r);
+  padding: 12px 22px;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  width: 100%;
+  transition: opacity 0.15s;
+}
+
+.btn-primary:hover { opacity: 0.85; }
+.btn-primary:disabled { opacity: 0.3; cursor: not-allowed; }
+
+.btn-sm {
+  border: 1px solid var(--c-border);
+  background: transparent;
+  border-radius: 6px;
+  color: var(--c-muted);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.btn-sm:hover { border-color: var(--c-accent); color: var(--c-accent); }
+.btn-sm--danger:hover { border-color: var(--c-danger); color: var(--c-danger); }
+.btn-sm:disabled { opacity: 0.3; cursor: not-allowed; pointer-events: none; }
+
+/* ─── Badge ─── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid;
+  white-space: nowrap;
+}
+
+.badge--pending   { color: var(--c-warn);    border-color: var(--c-warn);    background: rgba(232,180,77,.08); }
+.badge--confirmed { color: var(--c-success);  border-color: var(--c-success); background: rgba(95,186,125,.08); }
+.badge--cancelled { color: var(--c-danger);   border-color: var(--c-danger);  background: rgba(217,95,95,.08); }
+
+/* ─── Toast ─── */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--c-surface2);
+  border: 1px solid var(--c-border);
+  border-left: 3px solid var(--c-success);
+  border-radius: var(--r);
+  padding: 12px 18px;
+  font-size: 13px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.toast--visible { opacity: 1; transform: translateY(0); }
+.toast--error   { border-left-color: var(--c-danger); }
+
+/* ─── Filter row ─── */
+.filter-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: transparent;
+  border: 1px solid var(--c-border);
+  border-radius: 20px;
+  color: var(--c-muted);
+  font-size: 12px;
+  padding: 5px 16px;
+  transition: all 0.15s;
+}
+
+.filter-btn:hover,
+.filter-btn--active {
+  border-color: var(--c-accent);
+  color: var(--c-accent);
+}
+
+.filter-btn--active {
+  background: var(--c-surface2);
+}
+
+/* ─── Empty state ─── */
+.empty {
+  text-align: center;
+  padding: 56px 20px;
+  color: var(--c-muted);
+  font-size: 14px;
+}
+
+.empty__icon {
+  font-size: 42px;
+  margin-bottom: 14px;
+  opacity: 0.4;
+}
