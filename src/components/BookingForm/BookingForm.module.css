@@ -1,0 +1,69 @@
+.panel {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r2);
+  padding: 22px 20px;
+  position: sticky;
+  top: 20px;
+}
+
+.infoBox {
+  background: var(--c-surface2);
+  border: 1px solid var(--c-border);
+  border-left: 3px solid var(--c-accent);
+  border-radius: var(--r);
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  font-size: 13px;
+  line-height: 1.8;
+  min-height: 58px;
+}
+
+.infoBoxEmpty {
+  border-left-color: var(--c-border);
+  color: var(--c-muted);
+}
+
+.infoAccent {
+  color: var(--c-accent);
+}
+
+.field {
+  margin-bottom: 14px;
+}
+
+.label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  margin-bottom: 6px;
+}
+
+.input {
+  width: 100%;
+  background: var(--c-surface2);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r);
+  color: var(--c-text);
+  font-size: 14px;
+  padding: 10px 12px;
+  outline: none;
+  transition: border-color 0.15s;
+  appearance: auto;
+}
+
+.input:focus {
+  border-color: var(--c-accent);
+}
+
+.input option {
+  background: var(--c-surface2);
+}
+
+.row2 {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 10px;
+}
