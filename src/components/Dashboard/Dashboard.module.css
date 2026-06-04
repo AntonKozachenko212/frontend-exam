@@ -1,0 +1,39 @@
+.row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+@media (max-width: 700px) {
+  .row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.stat {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r);
+  padding: 14px 16px;
+}
+
+.val {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.lbl {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  margin-top: 6px;
+}
+
+.total     .val { color: var(--c-accent); }
+.pending   .val { color: var(--c-warn); }
+.confirmed .val { color: var(--c-success); }
+.cancelled .val { color: var(--c-danger); }
+.seats     .val { color: var(--c-info); }
