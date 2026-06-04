@@ -1,0 +1,89 @@
+.card {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-left: 3px solid var(--c-border);
+  border-radius: var(--r2);
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: border-color 0.2s;
+}
+
+.card_pending   { border-left-color: var(--c-warn); }
+.card_confirmed { border-left-color: var(--c-success); }
+.card_cancelled { border-left-color: var(--c-danger); opacity: 0.6; }
+
+.cardId {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 62px;
+}
+
+.idCode {
+  font-size: 11px;
+  color: var(--c-muted);
+  letter-spacing: 0.1em;
+  font-family: monospace;
+}
+
+.idDate {
+  font-size: 11px;
+  color: var(--c-muted);
+}
+
+.cardMain {
+  flex: 1;
+  min-width: 0;
+}
+
+.movieTitle {
+  font-size: 15px;
+  color: var(--c-text);
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.details {
+  font-size: 12px;
+  color: var(--c-muted);
+  margin-bottom: 4px;
+}
+
+.seats {
+  font-size: 13px;
+  color: var(--c-accent);
+}
+
+.cardRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-end;
+}
+
+@media (max-width: 600px) {
+  .card {
+    flex-wrap: wrap;
+  }
+  .cardRight {
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .actions {
+    flex-direction: row;
+  }
+}
